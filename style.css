@@ -1,0 +1,572 @@
+/* --- 1. Navbar Container --- */
+.navbar {
+  /* 1. REQUIRED: Make it fixed to the viewport */
+  position: fixed; 
+  /* 2. REQUIRED: Pin it to the top edge */
+  top: 0; 
+  /* 3. REQUIRED: Make it span the full width of the screen */
+  width: 100%; 
+  /* 4. RECOMMENDED: Ensure it layers on top of all other content */
+  z-index: 1000; 
+
+  /* Existing styles for layout and appearance */
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 2. Logo --- */
+.logo {
+  height: 40px; /* Adjust based on your logo size */
+}
+
+/* --- 3. Navigation Links and Button Container (.nav-links) --- */
+.nav-links {
+  /* Flexbox lines up the <ul> (links) and the .nav-btn (button) */
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between the link list and the button */
+}
+
+/* --- 4. Link List (<ul>) Styling --- */
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Lines up the <li> elements horizontally */
+  gap: 20px; /* Space between individual links (New, Men, Woman, etc.) */
+}
+
+/* --- 5. Individual Link (<a>) Styling --- */
+.nav-links ul li a {
+  text-decoration: none;
+  color: #333; /* Dark text color */
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links ul li a:hover {
+  color: #007bff; /* Example hover effect */
+}
+
+/* --- 6. Button Styling --- */
+.nav-btn button {
+  background-color: #000; /* Black background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-btn button:hover {
+  background-color: #333;
+}
+
+/* --- 7. Search Bar & Icons Container --- */
+.header-icons-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between search bar and the right icons */
+}
+
+/* --- 8. Search Bar (Pill Shape) --- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 25px; /* Creates the rounded shape */
+  padding: 8px 15px; 
+}
+
+/* Search Icon */
+.search-bar .fa-search {
+  color: #888; 
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Input Field */
+.search-bar input[type="text"] {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+  width: 150px; /* Define input field width */
+}
+
+.search-bar input::placeholder {
+  color: #888; 
+}
+
+/* --- 9. Right Icons (Heart and Bag) --- */
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+  font-size: 20px; /* Icon size */
+  color: #333;
+}
+
+.right-icons i {
+  cursor: pointer;
+}
+ /* Container for the slides */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  height: auto;
+  
+}
+
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons style */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a darker background */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text style */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.slideshow-container img {
+  width: 100%;
+  /* Reduced the height */
+  height: 450px; 
+  object-fit: cover;
+  padding-top: 50px; /* Adjust 50px to the distance you want */ 
+}
+/* Container for the Grid */
+/* Container for the Grid (Same as before) */
+.main-content {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 20px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 🎯 NEW: Set a consistent height for the image area within the grid item */
+.grid-item {
+    /* (Keep previous styles like transition, shadow, etc.) */
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    overflow: hidden;
+    background-color: white;
+    border-radius: 8px;
+    /* We don't need a fixed height on grid-item, 
+       but we need a container for the image if we use a different structure.
+       For this example, we will apply height directly to the image. */
+}
+
+/* 🎯 NEW: Force images to be the same size */
+.grid-item img {
+    /* Force the image to take the full width of the grid item */
+    width: 100%;
+    
+    /* Set a consistent height for ALL images */
+    /* Use a fixed value (e.g., 250px) or a proportional value (e.g., 20vw) */
+    height: 600px; 
+    
+    /* Crucial: object-fit determines how the image content fills the dimensions. */
+    /* 'cover' scales the image uniformly to cover the entire container, cropping if necessary. */
+    object-fit: cover; 
+    
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Caption and Hover styles (Same as before) */
+
+.grid-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.grid-item:hover img {
+    transform: scale(1.05); 
+}
+.btn {
+  /* Pill Shape */
+  border-radius: 9999px; 
+  /* Visuals */
+  background-color: white;
+  color: black;
+  border: none;
+  /* Size and Text */
+  font-size: 1em; /* Adjust size as needed */
+  padding: 8px 16px; 
+  cursor: pointer; /* Indicates it's clickable */
+  
+  /* Positioning and Layout */
+  display: block; /* Make the button take up its own line */
+  margin: 10px auto; /* Center the button below the image */
+}
+/* 1. Make the container the reference point for positioning */
+.grid-item {
+    position: relative; /* CRUCIAL: Makes children position relative to this box */
+    /* ... other grid-item styles ... */
+}
+
+/* 2. Position the button absolutely */
+.btn {
+    position: absolute; /* Takes the button out of the normal flow */
+    bottom: 20px; /* Distance from the bottom of the image */
+    left: 50%; /* Start the button at the horizontal center */
+    transform: translateX(-50%); /* Shift it back by half its own width to truly center it */
+    
+    /* ... (Keep all the styling from Section 1 for pill shape, color, etc.) ... */
+}
+.btn:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+  transform: translateX(-50%) scale(1.05); /* Slightly enlarge on hover */
+}
+/* Layout the 4 items in a 2x2 grid */
+.video-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Make the container the reference point for the button/text overlay */
+.grid-item {
+    **position: relative;** /* CRUCIAL for absolute positioning */
+    overflow: hidden; 
+    height: 550px; /* Uniform height for all 4 boxes */
+}
+
+/* Ensure the video fills the whole box */
+.grid-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* Position the overlay content on top of the video */
+.video-overlay {
+    **position: absolute;** /* Lays the content over the video */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 700px;
+    
+    /* Center the text and button */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Styling for readability */
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark wash */
+    color: white; 
+    text-align: center;
+    padding: 10px;
+}
+
+/* Text Styling */
+.video-overlay h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Button Styling (Pill shape, small, white) */
+.btn {
+    border-radius: 9999px;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Container for each set of 5 images */
+.gallery-row {
+    display: flex; /* Arranges items in a row */
+    gap: 10px; /* Space between thumbnails */
+    margin-bottom: 20px; /* Space between the two rows */
+}
+
+/* Individual item container */
+.gallery-item {
+    position: relative; /* CRITICAL: Anchors the absolute preview box */
+    flex: 1 1 20%; /* Distributes 5 items equally (20% each) */
+    cursor: pointer;
+    overflow: visible; /* CRITICAL: Allows the pop-up box to extend outside the item */
+}
+
+/* The small image you see initially */
+.thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* The hidden box that pops up */
+.preview-box {
+    position: absolute;
+    z-index: 10; /* Ensures it layers over neighboring thumbnails */
+    
+    /* 1. INITIAL STATE: Hide the box and position it */
+    opacity: 0; /* Starts completely transparent */
+    visibility: hidden; /* Ensures it doesn't block clicks */
+    top: 0; /* Positions the top of the box at the top of the row */
+    left: 50%; /* Starts the box halfway across the thumbnail */
+    transform: translate(-50%, -10px); /* Centers the box and slightly shifts it up */
+    
+    /* Styling */
+    width: 300px; /* The pop-up size (adjust as needed) */
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth animation */
+}
+
+/* Make the contents of the preview box fit */
+.preview-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+/* 2. HOVER STATE: Show the box */
+.gallery-item:hover .preview-box {
+    opacity: 1; /* Makes it fully visible */
+    visibility: visible;
+    transform: translate(-50%, -20px); /* Moves it slightly further up */
+}
+.popular-section {
+    /* Set a light/neutral background */
+    background-color: #f7f7f7; 
+    padding: 50px 20px;
+    font-family: sans-serif;
+}
+
+.popular-section h1 {
+    font-size: 2em;
+    text-align: left; /* Keep title aligned left */
+    margin-left: calc((100% - 1240px) / 2); /* Aligns title with content start (adjust 1240px as needed) */
+    margin-bottom: 25px;
+}
+
+.card-row {
+    display: flex;
+    justify-content: center; /* Center the row of cards */
+    gap: 15px; /* Space between each image */
+    max-width: 1240px; /* Control the overall width of the gallery */
+    margin: 0 auto; /* Center the entire row container */
+    padding: 0 10px;
+}
+.slider-wrapper {
+    position: relative; /* Anchor for the absolute arrows */
+    max-width: 1240px; /* Same width as before */
+    margin: 0 auto; 
+    padding: 0 40px; /* Add padding for the arrows to sit outside the scroll area */
+}
+
+/* Enable Horizontal Scrolling and Hide the Scrollbar */
+.card-row {
+    display: flex;
+    /* ➡️ INCREASE GAP HERE */
+    gap: 20px; 
+    overflow-x: scroll;
+    flex-wrap: nowrap; 
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; 
+}
+/* Hide scrollbar in Webkit browsers */
+.card-row::-webkit-scrollbar {
+    display: none;
+}
+.card {
+    /* Keep existing styles, but add transition */
+    flex: 0 0 240px; /* Explicitly set size to 240px and prevent shrinking/growing */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, z-index 0s; /* Smooth animation */
+}
+
+.card:hover {
+    /* CRITICAL: Enlarge the card on hover */
+    transform: scale(1.15); 
+    
+    /* Bring the hovered card to the front so it overlaps neighbors */
+    z-index: 100; 
+    
+    /* Optional: Add a subtle lift shadow */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure the image scales with the card */
+.card img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover;
+    display: block;
+}
+.slider-wrapper {
+    position: relative; 
+    max-width: 1240px; 
+    margin: 0 auto; 
+    /* ➡️ ADJUST PADDING HERE (e.g., from 40px to 60px) */
+    padding: 0 60px; 
+}
+footer {
+    background-color: white ;/* Very light gray/off-white background */
+    color: #555; /* Medium gray text */
+    font-family: sans-serif;
+    padding: 40px 0 20px 0; /* Top/Bottom padding */
+}
+
+/* Container for the 4 main link columns and the country selector */
+.footer-content {
+    display: grid;
+    /* Define 4 equal columns for the links and a gap between them */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    max-width: 1400px; /* Controls the max width of the content */
+    margin: 0 auto; /* Center the content */
+    padding: 0 40px; /* Inner padding for edges */
+    position: relative; /* Anchor for positioning the country selector */
+}
+
+/* Country selector moved to the right column */
+.country-selector {
+    position: absolute;
+    top: 0;
+    right: 40px; /* Aligned with the padding */
+    font-size: 0.8em;
+    color: #333;
+    font-weight: 600;
+}
+.footer-column h3 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333; /* Darker color for headings */
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+    font-size: 0.85em; /* Smaller font size for links */
+}
+
+.footer-column a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    color: #000; /* Darken link on hover */
+}
+.footer-bottom {
+    display: flex;
+    justify-content: space-between; /* Pushes copyright to left, links to right */
+    align-items: center;
+    max-width: 1400px; 
+    margin: 40px auto 0 auto; /* Add vertical separation from link columns */
+    padding: 20px 40px 0 40px;
+    border-top: 1px solid #ddd; /* Subtle separating line */
+    font-size: 0.75em; /* Very small text */
+}
+
+.copyright {
+    /* Nike's copyright section often includes the country selector here, 
+       but we handled it separately for positioning. */
+    color: #777;
+    white-space: nowrap; /* Keep copyright text on one line */
+}
+
+.legal-links a {
+    color: #777;
+    text-decoration: none;
+    margin-left: 15px; /* Space between legal links */
+}
+
+.legal-links a:hover {
+    text-decoration: underline;
+}
+
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
